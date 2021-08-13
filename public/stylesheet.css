@@ -1,0 +1,126 @@
+
+.footer
+{
+    color: black;
+}
+.sli
+{
+    font-size: 3rem;
+    font-weight: bolder;
+ font-style: oblique;
+color: greenyellow;
+}
+.contact
+{
+    font-size: 16px;
+}
+.collection-header
+{
+    font-style: italic;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+#modal1
+{
+    font-size: 20px;
+}
+.brand-logo{
+    font-style: italic;
+    font-size: larger;
+    font-size: 5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 3px;
+}
+header nav{
+    background-color: green;
+    position: relative;
+}
+header ul{
+    font-size:3rem;
+    letter-spacing: 2px;
+    font-style: oblique;
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin: 0px;
+    padding: 0px;
+}
+.navbar-fixed ul li{
+    padding:0px;
+    margin:0px 5px;
+}
+
+    @media only screen and (max-width:1024px){
+        header nav{
+            height: 15vh;
+        }
+     .navbar-fixed .brand-logo {
+         padding-top:0px;
+         margin-bottom: 25px;
+         margin-top: 0px;
+     }
+     .nav-wrapper ul li{
+         padding-top: 30px;
+     }
+    }
+    @media only screen  and (max-width:992px){
+        header nav{
+            height: 10vh;
+        }
+    }
+    @media only screen and (max-width:737px){
+        header nav{
+            height: 30vh;
+            margin-bottom: 5rem;
+        }
+    }
+    @media only screen and (max-width:500px){
+        header nav{
+            height: 15vh;
+        }
+    }
+    @media only screen and (max-width:376px){
+        header nav{
+            height: 30vh;
+        }
+    }
+    .btn{
+        border-radius: 36px;
+        background: #FEE996;
+      }
+      form h2{
+        font-size: 2.4em;
+        font-weight: 900;
+        margin-bottom: 40px;
+      }
+      form{
+        width: 360px;
+        margin: 0 auto;
+        padding: 30px;
+        box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        background: white;
+      }
+      input{
+        padding: 10px 12px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        font-size: 1em;
+        width: 100%;
+      }
+      label{
+        display: block;
+        margin: 20px 0 10px;
+      }
+      button{
+        margin-top: 30px;
+        border-radius: 36px;
+        background: #FEE996;
+        border:0;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.8em;
+        display: block;
+        padding: 10px 16px;
+        letter-spacing: 2px;
+      }
+

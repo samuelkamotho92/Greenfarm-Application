@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <!--fontawesome icons/ boostrap-->
+    <link rel="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+</head>
+<body>
+    <header>
+          <nav>
+            <div class="nav-wrapper">
+              <a href="#!" class="brand-logo left">Logo</a>
+              <ul class="right">
+                <li><a href="/index.html">Home<i class="material-icons right">house</i></a></li>
+                <li><a href="">Shopping cart <span id="cart_n">0</span><i class="material-icons right">local_grocery_store</i></a></li>
+                <li><a href="" data-target="modal1" class="modal-trigger">Admin</a></li>
+              </ul>
+            </div>
+          </nav>
+    </header>
+    <!--Products container-->
+    <div class="container">
+        <br>
+        <h2 id="vegetables">Vegetables</h2>
+        <hr>
+        <div class="row" id="vegetableDiv"></div>
+        <h2 id="banana">Bananas</h2>
+        <hr>
+        <div class="row" id="bananaDiv">
+            <h2 id="Fish">Fish</h2>
+            <hr>
+            <div class="row" id="fishDiv"></div>
+            <h2 id="poultry">Poultry</h2>
+            <hr>
+            <div class="row" id="poultryDiv">
+            </div>
+        </div>
+        <footer class="container">
+            <p class="right">
+                <a href="#">Top</a>
+            </p>
+        </footer>
+    </div>
+    <!--Admin Modal-->
+    <div class="modal" id="modal1">
+        <div class="modal-content">
+                    <form id="formlogin">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <i class="material-icons prefix">account_circle</i>
+                          <input type="text" required id="userName" class="validate">
+                          <label for="icon-prefix">User</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <i class="material-icons prefix">password</i>
+                          <input type="password" required id="userPassword" class="validate">
+                          <label for="icon-prefix">Password</label>
+                        </div>
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                           <i class="material-icons right">send</i></button>
+                      </div>
+    </div>
+         <!-- The core Firebase JS SDK is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBC38FTu1_9SY2TpoCZWsqgnGR0ZnK909o",
+        authDomain: "lazerpro-33b06.firebaseapp.com",
+        projectId: "lazerpro-33b06",
+        storageBucket: "lazerpro-33b06.appspot.com",
+        messagingSenderId: "76903197867",
+        appId: "1:76903197867:web:2503debbe719fb59801bee"
+      };
+        // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+   const db = firebase.firestore();
+   const auth = firebase.auth();
+   db.settings({timestampsInSnapshots: true});
+    </script> 
+     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/orderonline.js"></script>
+</body>
+</html>
