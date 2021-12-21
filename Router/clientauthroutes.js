@@ -1,4 +1,5 @@
-const authcontroller = require("../controler/authcontroler");
+const authcontroller =
+ require("../controler/authcontroler");
 const express = require("express");
 const routes = express.Router();
 routes
@@ -9,5 +10,7 @@ routes
   .route("/signup")
   .get(authcontroller.signupclient)
   .post(authcontroller.signupclientpost);
-
-  module.exports = routes;
+routes
+.route("/logout")
+.get(authcontroller.loggedoutuser);
+module.exports = routes;

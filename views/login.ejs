@@ -1,22 +1,49 @@
-<%-include("./partials/head.ejs");-%>
-<%-include("./partials/authnav.ejs");-%>
-<form>
-    <label for="email">Email</label>
-    <input type="email" name="email" required/>
-    <div class="emailerror"></div>
-    <label for="password">Password</label>
-    <input type="password" name="password" required/>
-    <div class="passworderror"></div>
-    <button>Login</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<%-include("partials/head");-%>
+<%-include("partials/authnav");-%>
+<main>
+    <form>
+        <label for="email">Email</label>
+        <input type="email" name="email" required/>
+        <div class="emailerror"></div>
+        <label for="password">Password</label>
+        <input type="password" name="password" required/>
+        <div class="passworderror"></div>
+        <button>Login</button>
+    </form>
+</main>
 <script>
-    const form  = document.querySelector("form");
-    form.addEventListener("submit",(e)=>{
-        e.preventDefault();
-        const useremail = form.email.value;
-        const userpassword = form.password.value;
-        console.log(useremail,userpassword)
+    const form = document.querySelector("form");
+    const emailerror = document.querySelector(".emailerror");
+const passworderror = document.querySelector(".passworderror");
+    form.addEventListener("submit", async (e)=>{
+e.preventDefault();
+emailerror.textContent = "";
+passworderror.textContent = "";
+//grab values
+const useremail = form.email.value;
+const userpassword = form.password.value;
+try {
+    const res  = await fetch("/login",{
+        method: 'POST',
+        body: JSON.stringify({useremail:useremail,userpassword:userpassword}),
+        headers: {'Content-Type': 'application/json'}
+    });
+    const data = await res.json();
+    console.log(data);
+    if (data.error) {
+        emailerror.textContent = data.error.useremail;
+        passworderror.textContent = data.error.userpassword;
     }
-    )
+    if (data.user) {
+     location.assign("/Client");
+    }
+} catch (error) {
+    console.log(error);
+}
+
+    })
 </script>
-<%-include("./partials/footer.ejs");-%>
+<%-include("partials/footer");-%>
+</html>

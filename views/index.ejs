@@ -3,6 +3,7 @@
   <%- include('./partials/head.ejs'); %>
 <body class="scrollspy"  id="Home">
 <%-include("./partials/nav.ejs");%>
+<main>
       <!--slider-->
       <div class="slider">
         <ul class="slides">
@@ -53,7 +54,7 @@
         </ul>
       </div>
       <!--follow us -->
-      <div id= "Social media"class=" green wite-text center scrollspy">
+      <div id= "social-media"class=" green wite-text center scrollspy">
         <div class="container">
           <div class="row">
             <div class="col s12">
@@ -76,10 +77,12 @@
     <h5 class="center">When it comes to <span class="green-text">fish production and supply</span> we are the best</h5>
     <div class="row">
       <div class="col s12 m6">
-        <img src="/assets/fishHarvest.jpeg" class="materialboxed responsive-img">
+        <img src="/assets/fishHarvest.jpeg"
+         class="materialboxed responsive-img image1">
       </div>
       <div class="col s12 m6">
-        <img src="/assets/FishHarvest1.jpeg" class="materialboxed responsive-img">
+        <img src="/assets/FishHarvest1.jpeg" 
+        class="materialboxed responsive-img image1">
       </div>
     </div>
     <h5 class="center">House <span class="green-text">booking</span> on going</h5>
@@ -88,8 +91,7 @@
         <img src="/assets/corridor2.jpg" class="materialboxed responsive-img">
       </div>
       <div class="col s12 m4">
-        <img src="/assets/behind.jpg" style="height: 520px;"class="materialboxed responsive-img">
-      </div>
+        <img src="/assets/behind.jpg"class="materialboxed responsive-img"> </div>
       <div class="col s12 m4">
         <img src="/assets/corridor1.jpg" class="materialboxed responsive-img">
       </div>
@@ -144,7 +146,7 @@
           <div class="col s12 m6">
             <div class="card-panel green white-text center">
 <i class="material-icons">email</i> 
-<h5>Reach us on our email page: greenfarmdev@gmail.com</h5>
+<h5>Reach us on our email page: greenfarm199@gmail.com</h5>
 <h5>contact us</h5>
 <p class="contact">Talk to us at any time,your views matters alot </p>
             </div>
@@ -156,55 +158,16 @@
               <li class="collection-item">Opened:Week days 8:00am - 5:00pm</li>
             </ul>
           </div>
-         <div class="col s12 m6 scrollspy" id="">
-           <form action="" class="content">
-             <div class="card-panel green white-text center">
-               <h3>Please fill out this form</h3>
-             </div>
-             <div class="input-field">
-               <input type="text" name="name" placeholder="Name" required />
-             </div>
-             <div class="input-field">
-              <input type="password" name="password" placeholder="Password" required />
-            </div>
-            <div class="input-field">
-              <input type="number" name="phonenumber" placeholder="Phonenumber" required />
-            </div>
-
-            <div class="input-field">
-              <textarea class="materialize-textarea" name="issue" placeholder="issue"></textarea>
-              </div>
-              <button class="btn teal">SUBMIT</button>
-           </form>
-         </div>
+       <div class="col s12 m6">
+<div class="geolocation">
+  <h4>Locate us on Google Map</h4>
+</div>
+       </div>
         </div>
       </div>
     </div>
+    </main>
 <%-include("./partials/footer.ejs");%>
-  <!-- Modal Trigger -->
-  <!-- <button data-target="modal1" class="btn modal-trigger">Modal</button>
-       -->
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
-
-    <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyBC38FTu1_9SY2TpoCZWsqgnGR0ZnK909o",
-        authDomain: "lazerpro-33b06.firebaseapp.com",
-        projectId: "lazerpro-33b06",
-        storageBucket: "lazerpro-33b06.appspot.com",
-        messagingSenderId: "76903197867",
-        appId: "1:76903197867:web:2503debbe719fb59801bee"
-      };
-        // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-   const auth = firebase.auth();
-   db.settings({timestampsInSnapshots: true});
-    </script>
       <!--JavaScript at end of body for optimized loading-->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

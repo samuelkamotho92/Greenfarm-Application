@@ -7,18 +7,24 @@
              <a href="#" data-target="slide-out" class="sidenav-trigger">
                <i class="material-icons">menu</i></a>
              <ul class="right hide-on-med-and-down">
-                 <li><a href="/login">LOGIN</a></li>
-                 <li><a href="/">LOG OUT</a></li>
+               <% if(user) {%>
+                 <li><a href="/logout">LOG OUT</a></li>
+                 <%} else {%>
+                 <li><a href="/login">LOG IN</a></li>
                  <li><a href="/Signup">SIGN UP</a></li>
+                 <%}%>
          </ul>
        </div>
              </nav>
              </div>
              <ul id="slide-out" class="sidenav">
                  <li><a href="/">Home</a></li>
-                    <li><a href="/login">LOGIN</a></li>
-                    <li><a href="/">LOG OUT</a></li>
-                    <li><a href="/signup">SIGN UP</a></li>
+                 <% if(user) {%>
+                     <li><a href="/logout">LOGOUT</a></li>
+                     <%} else {%>
+                     <li><a href="/login">LOG IN</a></li>
+                     <li><a href="/Signup">SIGN UP</a></li>
+                     <%}%>
             </ul>
          </ul>
          </header>

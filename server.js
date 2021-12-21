@@ -9,9 +9,10 @@ mongoose
     useUnifiedTopology: true,
     useCreateIndex: true,
   })
-  .then((result) =>
-    app.listen(8000, () => {
-      console.log("connected");
+.then(()=>{
+   app.listen(8080,()=>{
+console.log("connected to mongdb database");
     })
-  )
-  .catch((err) => console.log(err));
+  }).catch(err=>{
+console.log(err);
+  });

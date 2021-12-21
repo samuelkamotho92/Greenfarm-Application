@@ -1,7 +1,29 @@
-
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body{
+    height:100%;
+}
+main{
+    height:100%;
+}
+a .brand-logo{
+font-size:32px;
+text-shadow: 2px 2px wheat 0.4;
+color:crimson;
+}
 .footer
 {
     color: black;
+    position:relative;
+    
+}
+.footer .flow-text{
+    text-align: center;
+    margin:15px auto ;
+    padding: 10px;
 }
 .sli
 {
@@ -124,3 +146,65 @@ header ul{
         letter-spacing: 2px;
       }
 
+#social-media{
+    margin:30px 20px;
+}
+
+#social-media h5{
+    margin-bottom:5px auto;
+}
+#social-media a{
+    padding:5px;
+     margin:10px;
+}
+#Photo-gallery .row{
+margin:30px auto;
+}
+#Photo-gallery .row .materialboxed {
+    height: 300px;
+    width:500px;
+    margin: 20px auto;
+}
+#photo-gallery .container h5{
+    margin: 10px auto;
+    padding:5px;
+}
+.geolocation{
+    margin:0px 10px;
+}
+.myfooter a {
+margin: 0px 10px;
+padding: 5px;
+}
+.navy a{
+    margin: 5px 5px;
+    padding: 5px;
+    font-size: 1.5rem;
+}
+.prof-row{
+    margin: 20px auto;
+}
+.prof-row div .prof-img{
+    height:450px;
+    width:400px;
+}
+.container .prof-text{
+    text-align:center;
+    margin:100px auto;
+    padding:10px;
+}
+.scrollspy-text{
+    text-align: center;
+    margin:5px auto;
+    font-size: 1.5rem;
+}
+.userinfo{
+    bottom:0px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+
+
+}
+.userinfo li{
+}

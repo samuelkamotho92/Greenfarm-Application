@@ -25,6 +25,7 @@ authSchema.post("save",function(doc,next){
     console.log("user saved",doc);
     next();
 })
+//mongose pre hook
 //before pushing pasword we hash and salt the password
 authSchema.pre("save",async function(next){
     console.log("user about to be saved",this);
@@ -32,6 +33,22 @@ authSchema.pre("save",async function(next){
     this.userpassword = await bcrypt.hash(this.userpassword,salt);
     next();
 })
+// static method to login user
+authSchema.statics.login = async function (useremail,userpassword) {
+    //this reffers to the model  
+    //returns the colection that matches
+    const user = await this.findOne({useremail});
+    if(user)
+    {
+        //comapres the password
+  const auth = await bcrypt.compare(userpassword,user.userpassword);
+  if(auth){
+ return user;
+  }
+  throw Error("incorrect password");
+    }
+    throw Error("incorrect email");
+  }
 //model
 const authmodel = mongoose.model("user",authSchema);
 module.exports = authmodel;

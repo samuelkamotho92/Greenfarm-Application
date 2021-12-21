@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include("partials/head");%>
+ <body>
+<%-include("partials/nav.ejs");%>
+<main>
+    <div class="content">
+    <p>Patient Name<%=detail.name%></p>
+    <p>Patient phonenumber<%=detail.phonenumber%></p>
+    <p>Patient Email<%=detail.email%></p>
+    <p>Patinet Illness<%=detail.illness%></p>
+    <p>Date Recommended<%=detail.date%></p>
+    </div>
+    <a class="delete" data-doc="<%=detail._id%>">DELETE</a>
+</main>
+<%-include("partials/footer.ejs")%>
+<script> 
+    const deletereq  = document.querySelector(".delete");
+    console.log(deletereq)
+    deletereq.addEventListener("click",function () {
+        console.log("clicked");
+        const endpoint = `/detail/${deletereq.dataset.doc}` ;
+      console.log(endpoint);
+      fetch(endpoint,{
+          method:"DELETE",
+      }).then(resp=>{
+          //RESONSE WILL BE SENT BACK convert it into 
+          //return has brackets
+        return resp.json();
+      }).then(data=>{
+          //jandle the promise
+          window.location.href = data.redirect;
+      }).catch((err)=>{
+          console.log(err);
+      })
+    })
+  </script>
+</body>
+</html>

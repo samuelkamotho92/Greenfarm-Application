@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include("partials/head")%>
+<body>
+    <%-include("./partials/nav.ejs"); %>
+    <main>
+<h3>Welcome to <%=title%></h3>
+<%if(patientDetail.length > 0){%>
+<%patientDetail.forEach(detail=>{%>
+    <a href="/detail/<%=detail._id%>">
+<div class="patientname">
+   <h4>Name:<%=detail.name%></h4>
+</div>
+<div class="patientnumber">
+    <h5>Phone Number:<%=detail.phonenumber%></h4>
+</div>
+<div class="patientemail">
+    <h5>Email:<%=detail.email%></h4>
+</div>
+<div class="extrainfo">
+ <p>Illness:<%=detail.illness%></h4>
+<p>Date:<%=detail.date%></h4>
+    </div>
+</a>
+<%})%>
+<%}else {%>
+    <h2>NO PATIENT HAS BOOKED YET</h2>
+<%}%>
+</main>
+<%-include("./partials/footer.ejs");%>
+</body>
+
+</html>

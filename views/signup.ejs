@@ -1,16 +1,17 @@
 <%-include("./partials/head.ejs");-%>
 <%-include("./partials/authnav.ejs");-%>
-<form>
-  <label for="email">Email</label>
-  <input type="email" name="email" required />
-  <div class="emailerror"></div>
-  <label for="password">Password</label>
-  <input type="password" name="password" required />
-  <div class="passworderror"></div>
-  <button>Sign Up</button>
-</form>
+<main>
+    <form>
+        <label for="email">Email</label>
+        <input type="email" name="email" required />
+        <div class="emailerror"></div>
+        <label for="password">Password</label>
+        <input type="password" name="password" required />
+        <div class="passworderror"></div>
+        <button>Sign Up</button>
+      </form>
+</main>
 <script>
-
     const form  = document.querySelector("form");
     const emailerror = document.querySelector(".emailerror");
     const passworderror = document.querySelector(".passworderror");

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include("partials/head")%>
+<body>
+    <%-include("./partials/nav.ejs"); %>
+<main></main>
+<h3>Welcome to <%=title%></h3>
+<%if(clientDetail.length > 0){%>
+<%clientDetail.forEach(detail=>{%>
+<div class="clientname">
+   <h4>Name:<%=detail.name%></h4>
+</div>
+<div class="clientnumber">
+    <h5>PhoneNumber:<%=detail.phonenumber%></h4>
+</div>
+<div class="clientemail">
+    <h5>Email:<%=detail.email%></h4>
+</div>
+<div class="extrainfo">
+ <p>Description:<%=detail.housedescription%></h4>
+<p>Details:<%=detail.details%></h4>
+ <p>Date:<%=detail.date%></h4>
+    </div>
+<%})%>
+<%}else {%>
+    <h2>NO CLIENT HAS BOOKED YET</h2>
+    <%}%>
+</main>
+    <%-include("./partials/footer.ejs");%>
+</body>
+
+</html>
