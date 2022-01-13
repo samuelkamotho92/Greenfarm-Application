@@ -4,7 +4,7 @@ const routehandler = require("./Router/clientauthroutes");
 const bookingroutes = require("./Router/bookingrouter");
 const patientroutes = require("./Router/patientrouter");
 const {jwtauthveirify,getuserinfo} = require("./middleware/authjwtverify");
-const fs = require("fs");
+
 const app = express();
 // serve your css as static
 app.use(express.urlencoded({extended:true}));
@@ -45,7 +45,7 @@ app.get("/housebook",jwtauthveirify,(req,resp)=>{
 //booking middlware
 app.use(bookingroutes);
 //patient middleware
-app.use(patientroutes);
+app.use("/api/v1/patients",patientroutes);
 //setting our route handler for authroutes middleware
 app.use(routehandler);
 module.exports = app;

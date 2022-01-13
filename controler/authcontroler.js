@@ -1,5 +1,15 @@
-const authmodels = require("../modal/authmodel");
+/* eslint-disable arrow-body-style */
+/* eslint-disable prefer-const */
+/* eslint-disable node/no-unsupported-features/es-syntax */
+/* eslint-disable eqeqeq */
+/* eslint-disable radix */
+/* eslint-disable prefer-object-spread */
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
+/* eslint-disable new-cap */
+
 const jwt = require("jsonwebtoken");
+const authmodels = require("../modal/authmodel");
 //jwt 
 let maxAge = 3*24*60*60;
 const creatjwt = (id)=>{

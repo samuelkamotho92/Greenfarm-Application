@@ -1,6 +1,7 @@
-const authcontroller =
- require("../controler/authcontroler");
 const express = require("express");
+
+const authcontroller = require("../controler/authcontroler");
+
 const routes = express.Router();
 routes
   .route("/login")

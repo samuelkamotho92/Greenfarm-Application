@@ -1,5 +1,7 @@
-const app = require("./app");
 const mongoose = require("mongoose");
+const app = require("./app");
+
+
 // database connection
 const dbURI =
   "mongodb+srv://sam:37874493@nodetuts.4ka00.mongodb.net/Greenfarm?retryWrites=true";

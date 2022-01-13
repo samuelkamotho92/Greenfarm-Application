@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
+
 const {isEmail} = require("validator");
+
 const bcrypt = require("bcrypt");
 //define the Schema class
 const Schema = mongoose.Schema;
@@ -21,7 +23,7 @@ userpassword:{
     }
 );
 //after some events
-authSchema.post("save",function(doc,next){
+authSchema.post("save",(doc,next)=> {
     console.log("user saved",doc);
     next();
 })

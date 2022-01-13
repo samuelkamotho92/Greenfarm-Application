@@ -1,56 +1,59 @@
-    
-    <%-include("./partials/head");%>
-    <%-include("./partials/authnav.ejs");%>
-    <!--Modal3 rental-->
-    <div class="" id="">
-        <div class="container">
-          <div class="text-align center black-text">
-            <h3 class="center">Consult the Doctor</h3>
-            <form action="/doctor" method="POST">
-              <div class="input-field">
-                <input type="text" name="name" id="name" placeholder="" required>
-                <label for="name">
-                  <span class="material-icons">
-                    account_circle
-                    </span>
-                </label>
-              </div>
-             <div class="input-field">
-              <input type="email" name="email" placeholder="email" required\>
-              <label for="email"><i class="material-icons">email</i></label>
-             </div>
-              <div class="input-field">
-                <input type="number" name="phonenumber" placeholder="07xxxxxx00">
-                <label for="number">
-                  <i class="material-icons">phone</i>
-                </label>
-              </div>
-              <div class="input-field">
-                <textarea class="materialize-textarea" id="illness"
-                name="illness"
-                 placeholder="illness" required>
-                </textarea>
-                <label class="details">
-                  <span class="material-icons">
-                    feed
-                    </span>
-                </label>
-              </div>
-              
-              <div class="input-field">
-                <input type="text" name="date" class="datepicker">
-                <label for="date">
-                  <span class="material-icons">
-                    calendar_today
-                    </span>
-                </label>
-              </div>
-              <button class="btn teal">SUBMIT</button>
-            </form>
-          </div>
+<%-include(". /partials/head");%> <%-include(". /partials/authnav.ejs");%>
+<!--Modal3 rental-->
+<div class="" id="">
+  <div class="container">
+    <div class="text-align center black-text">
+      <h3 class="center">Consult the Doctor</h3>
+      <form action="/doctor" method="POST">
+        <div class="input-field">
+          <input type="text" name="name" id="name" placeholder="" required />
+          <label for="name">
+            <span class="material-icons"> account_circle </span>
+          </label>
         </div>
-      </div>
-  <%-include("./partials/footer.ejs");%>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="/index.js"></script>
+        <div class="input-field">
+          <input type="email" name="email" placeholder="email" required\ />
+          <label for="email"><i class="material-icons">email</i></label>
+        </div>
+        <div class="input-field">
+          <input type="number" name="phonenumber" placeholder="07xxxxxx00" />
+          <label for="number">
+            <i class="material-icons">phone</i>
+          </label>
+        </div>
+        <div class="input-field">
+          <input type="date" name="age" id="age"
+         placeholder="Whats your age?"/>
+          <label for="age">
+            <i class="material-icons">age</i>
+          </label>
+        </div>
+        <div class="input-field">
+          <textarea
+            class="materialize-textarea"
+            id="illness"
+            name="illness"
+            placeholder="illness"
+            required
+          >
+          </textarea>
+          <label class="details">
+            <span class="material-icons"> feed </span>
+          </label>
+        </div>
+
+        <div class="input-field">
+          <input type="text" name="date" class="datepicker" />
+          <label for="date">
+            <span class="material-icons"> calendar_today </span>
+          </label>
+        </div>
+        <button class="btn teal">SUBMIT</button>
+      </form>
+    </div>
+  </div>
+</div>
+<%-include(". /partials/footer.ejs");%>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/index.js"></script>
