@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const Schema = mongoose.Schema;
 
 const housebookSchema = new Schema({
@@ -25,6 +26,10 @@ const housebookSchema = new Schema({
     date:{
         type:String,
         required:true
+    },
+    price:{
+        type:Number,
+        default:3000
     }
 },{timestamps:true});
 const Housebook =  mongoose.model("housebook",housebookSchema);

@@ -2,6 +2,9 @@ const express = require("express");
 
 const patcontroler = require("../controler/patientcontrols")
 
+const authverify = require("../middleware/authjwtverify")
+
+
 const patientroutes = express.Router();
 
 //
@@ -17,7 +20,10 @@ patientroutes.route("/doctor")
 patientroutes.route("/detail/:id")
 .get(patcontroler.get_apatientbook)
 .patch(patcontroler.patientupdate)
-.delete(patcontroler.deletebooking)
+.delete(
+authverify.jwtauthveirify,
+authverify.restrictTo("admin","assistant"),
+    patcontroler.deletebooking)
 
 //rendering the patoent bking form
 // patientroutes.route("/patientbook")

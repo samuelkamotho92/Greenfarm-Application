@@ -10,7 +10,7 @@
   <li class="collection-item">email:greenfarm199@mail.com</li>
   <li class="collection-item">phonenumber: 0721308329/0725730116</li>
   </ul>
-  <form action="/booking" method="POST">
+  <form action="/api/v1/house/booking" method="POST">
   <h3>Booking  Form</h3>
   <div class="input-field">
     <input type="text" name="name" id="name" placeholder="" required>
@@ -42,7 +42,8 @@
   <p>
   <label>
     <input class="with-gap"
-     name="housedescription" value="bed-sitter" type="radio"  />
+     name="housedescription" value="bed-sitter"
+      type="radio"  />
     <span>Bed-sitter</span>
   </label>
   </p>

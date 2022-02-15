@@ -5,12 +5,13 @@
 <%-include("partials/nav.ejs");%>
 <main>
     <div class="content">
-    <p>Patient Name<%=detail.name%></p>
-    <p>Patient phonenumber<%=detail.phonenumber%></p>
-    <p>Patient Email<%=detail.email%></p>
-    <p>Patient Illness<%=detail.illness%></p>
-    <p>Date Recommended By Patient<%=detail.date%></p>
-    <p>Patient Age:<%=detail.age%></p>
+    <p>Name:   <%=detail.name%></p>
+    <p>Phonenumber:   <%=detail.phonenumber%></p>
+    <p>Email:        <%=detail.email%></p>
+    <p>House Description:       <%=detail.housedescription%></p>
+    <p>More Details:     <%=detail.details%></p>
+    <p>Date to move In:     <%=detail.date%></p>
+    <p>Rent Amount:     <%=detail.price%></p>
   </div>
     <a class="delete" data-doc="<%=detail._id%>">DELETE</a>
 </main>
@@ -21,7 +22,7 @@
     deletereq.addEventListener("click",function () {
         console.log("clicked");
    const endpoint = 
-   `/api/v1/patients/detail/${deletereq.dataset.doc}` ;
+   `/api/v1/house/detail/${deletereq.dataset.doc}` ;
       console.log(endpoint);
 
       fetch(endpoint,{
@@ -33,8 +34,8 @@
       }).then(data=>{
           //jandle the promise
           window.location.href = data.redirect;
-     alert(data.mess);
-        }).catch((err)=>{
+          alert(data.mess)
+      }).catch((err)=>{
           console.log(err);
       })
     })

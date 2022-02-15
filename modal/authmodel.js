@@ -16,10 +16,26 @@ useremail:{
     validate:[isEmail,"Please enter a valid email"]
 },
 userpassword:{
-    required:[true,"please enter a password"],
     type:String,
+    required:[true,"please enter a password"],
     minlength:[8,"please enter 8 or more character"]
+},
+userpasswordConfirm:{
+    type:String,
+    required:[true,"please enter a password"],
+    validate:{
+        validator:function(el){
+            return el === this.userpassword
+        },
+        message:`Enter the correct password confirmation`
+    }
+},
+role:{
+    type:String,
+    enum:["user","admin","assistant"],
+    default:"user"
 }
+
     }
 );
 //after some events
@@ -30,6 +46,9 @@ authSchema.post("save",(doc,next)=> {
 //mongose pre hook
 //before pushing pasword we hash and salt the password
 authSchema.pre("save",async function(next){
+    if(!this.isModified("userpassword")){
+next()
+    }
     console.log("user about to be saved",this);
     const salt = await bcrypt.genSalt();
     this.userpassword = await bcrypt.hash(this.userpassword,salt);
@@ -39,7 +58,7 @@ authSchema.pre("save",async function(next){
 authSchema.statics.login = async function (useremail,userpassword) {
     //this reffers to the model  
     //returns the colection that matches
-    const user = await this.findOne({useremail});
+    const user = await this.findOne({useremail}); 
     if(user)
     {
         //comapres the password

@@ -7,6 +7,7 @@
 <h3>Welcome to <%=title%></h3>
 <%if(clientDetail.length > 0){%>
 <%clientDetail.forEach(detail=>{%>
+    <a href="/api/v1/house/detail/<%=detail.id%>">
 <div class="clientname">
    <h4>Name:<%=detail.name%></h4>
 </div>
@@ -21,6 +22,7 @@
 <p>Details:<%=detail.details%></h4>
  <p>Date:<%=detail.date%></h4>
     </div>
+</a>
 <%})%>
 <%}else {%>
     <h2>NO CLIENT HAS BOOKED YET</h2>
