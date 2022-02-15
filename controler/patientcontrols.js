@@ -5,94 +5,74 @@
 //patient controler
 const doctorbooking = require("../modal/nutritionmodel");
 
+const AppError = require("../utility/appError");
+
+const catchAsync = require("../utility/catchAsync");
+
 const queryops = require("../utility/features");
 
-const get_patientbooking = async (req,resp)=>{
- try{
+
+
+
+
+const get_patientbooking = catchAsync(async (req,resp,next)=>{
    const features = new queryops(doctorbooking.find(),req.query);
   const result = await features.query;
   resp.status(200).render("doctors",
   { title:"Patient Booking",
   patientDetail:result})
- }catch(err){
-resp.status(404).json({
-status:"error",
-err
-})
- }
-  }
-const get_apatientbook = async (req,resp)=>{
-  try{
+  })
+const get_apatientbook = catchAsync(async (req,resp,next)=>{
     const patientid = req.params.id;
 const getonebooking = await doctorbooking.findById(patientid);
+if(!getonebooking){
+  return next(new AppError('No tour found with that ID', 404));
+}
+//returns on eobject taht you can get a specific value
 resp.status(200).render("detail",
   {title:"Patient Information",detail:getonebooking})
-  }catch(err){
-resp.status(404).json({
-  status:"error",
-  err
 })
-  }
-}
-const save_patientbooking = async (req,resp)=>{
-  try{
+const save_patientbooking = catchAsync(async (req,resp,next)=>{
   const nutri = await doctorbooking.create(req.body);
-    resp.status(200).json({
-      status:"success",
-      data:{
-        nutri
-      }
-    })
-  }catch(err){
-resp.status(404).json({
-  status:"error",
-  err
-})
-  }
-  }
-  const deletebooking = async (req,resp)=>{
-    try{
+    resp.status(200).redirect("/Client")
+  });
+
+  const deletebooking = catchAsync(async (req,resp,next)=>{
       const id = req.params.id;
-   await doctorbooking.findByIdAndDelete(id);
+  const book =  await doctorbooking.findByIdAndDelete(id);
+  if(!book){
+    return next(new AppError('No tour found with that ID', 404));
+    }
+
      resp.status(200).json({
 status:"success",
 data:null,
-redirect:"/doctor"
+redirect:"/api/v1/patients/doctor",
+mess:"deleted Suucesfully"
      })
-    }catch(err){
-      resp.status(404).json({
-        status:"err"
-             })
-    }
-}
+})
 
-const patientupdate = async function(req,resp){
-  try{
+const patientupdate = catchAsync(async (req,resp,next)=>{
     const id = req.params.id;
     const updates = await doctorbooking.findByIdAndUpdate(id,req.body,{
       runValidators:true,
       new : true
     });
+    if(!updates){
+      return next(new AppError('No tour found with that ID', 404))
+      }
     resp.status(204).json({
       status:"success",
       data:{
         updates
       }
     })
-  }catch(err){
-    resp.status(404).json({
-      status:"error",
-      err
-           })
-  }
-  
-}
+})
 
 
 //aggregate
 
-const aggrgateFunc = async(req,resp)=>{
-  try{
+const aggrgateFunc = catchAsync(async(req,resp,next)=>{
     const pipeline = [
       {
         $match:{
@@ -118,21 +98,11 @@ const aggrgateFunc = async(req,resp)=>{
         aggreagted 
       }
     })
-  }catch(err){
-resp.status(404).json({
-  status:"erro",
-  err
 })
-console.log(err)
-  }
-
-
-}
 
 //monthly patient booking
 
-const mthbook = async(req,resp)=>{
-  try{
+const mthbook = catchAsync(async(req,resp)=>{
     const year = req.params.year;
     console.log(year)
     const pipeline  = [{
@@ -158,20 +128,8 @@ const mthbook = async(req,resp)=>{
     status:"success",
   result
   })
-  }catch(err){
-resp.status(404).json({
-  status:"error",
-  err
-})
-  }
- 
-  
 
-
-  
-}
-
-
+  });
   module.exports = {
       get_patientbooking,
       save_patientbooking,

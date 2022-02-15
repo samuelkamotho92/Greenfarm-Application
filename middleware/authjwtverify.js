@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-alert */
+/* eslint-disable prefer-const */
 //verify user using decodededtoken
 const jwt = require("jsonwebtoken");
 const authmodel = require("../modal/authmodel");
@@ -6,7 +9,8 @@ const jwtauthveirify = (req,resp,next)=>{
 //check for jwt in the cookie  //name of cookie
 const token = req.cookies.jwt;
 if(token){
-    //verify
+    //verify 
+    //comapre the jwt,secrete
     jwt.verify(token,"samkam secret",(err,decodedToken)=>{
 if(err){
     //redirect
@@ -15,6 +19,8 @@ if(err){
 }else{
     //no err we proceed with the route 
     console.log({decodedToken});
+   const currentUser = authmodel.findById(decodedToken._id);
+   req.user = currentUser
 next()
 }
     })
@@ -23,6 +29,16 @@ next()
     resp.redirect("/login");
 }
 }
+
+const restrictTo = (...roles)=>(req,resp,next)=>{
+    if(!roles.includes(req.user.role)){
+return alert("NO PERMISSON TO PERFORM THE ACTION")
+    }
+    next();
+}
+
+
+
 
 const getuserinfo = (req,resp,next)=>{
 //check for jwt in the cookie  //name of cookie
@@ -48,4 +64,5 @@ else{
 }
 module.exports = {jwtauthveirify,
     getuserinfo,
+    restrictTo
 };
