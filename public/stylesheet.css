@@ -6,24 +6,40 @@
 body{
     height:100%;
 }
+#patientbooking{
+ margin: 30px auto;   
+}
 main{
-    height:100%;
+  height:100%;  
 }
 a .brand-logo{
 font-size:32px;
 text-shadow: 2px 2px wheat 0.4;
 color:crimson;
 }
-.footer
+.authfooter
 {
     color: black;
-    position:relative;
-    
+    position:fixed;
+    bottom: 0;
+    width: 100%;
 }
+.authfooter .flow-text{
+    text-align: center;
+    margin:5px auto ;  
+    padding: 2px;
+}
+.footer{
+    color: black;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
 .footer .flow-text{
     text-align: center;
-    margin:15px auto ;
-    padding: 10px;
+    margin:5px auto ;  
+    padding: 2px;
 }
 .sli
 {
@@ -41,6 +57,10 @@ color: greenyellow;
     font-style: italic;
     font-weight: bolder;
     text-transform: uppercase;
+}
+#map{
+    height: 400px;
+    width: 120%;
 }
 #modal1
 {
@@ -73,7 +93,7 @@ header ul{
 
     @media only screen and (max-width:1024px){
         header nav{
-            height: 15vh;
+            height: 12vh;
         }
      .navbar-fixed .brand-logo {
          padding-top:0px;
@@ -84,27 +104,43 @@ header ul{
          padding-top: 30px;
      }
     }
-    @media only screen  and (max-width:992px){
+    @media only screen  and (max-width:993px){
         header nav{
-            height: 10vh;
+            height: 8vh;
         }
     }
-    @media only screen and (max-width:737px){
+   .signupform, .loginform{
+display: flex;
+justify-content: center;
+align-items: center;
+    }
+#signing{
+    margin-top: 20px;
+}
+#loging{
+    margin-top: 60px;
+}
+    /* @media only screen and (max-width:737px){
         header nav{
             height: 30vh;
             margin-bottom: 5rem;
         }
-    }
-    @media only screen and (max-width:500px){
+    } */
+    /* @media only screen and (max-width:500px){
         header nav{
             height: 15vh;
         }
-    }
-    @media only screen and (max-width:376px){
+    } */
+    /* @media only screen and (max-width:376px){
         header nav{
             height: 30vh;
         }
-    }
+    } */
+.patient{
+
+}
+
+
     .btn{
         border-radius: 36px;
         background: #FEE996;
@@ -117,7 +153,6 @@ header ul{
       form{
         width: 360px;
         margin: 0 auto;
-        padding: 30px;
         box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
         border-radius: 10px;
         background: white;
@@ -172,6 +207,13 @@ margin:30px auto;
 .geolocation{
     margin:0px 10px;
 }
+.row-footer{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.myfooter{
+    
+}
 .myfooter a {
 margin: 0px 10px;
 padding: 5px;
@@ -199,12 +241,17 @@ padding: 5px;
     font-size: 1.5rem;
 }
 .userinfo{
-    bottom:0px;
     display:flex;
     align-items:flex-end;
     justify-content:center;
-
-
 }
-.userinfo li{
+.userinfo h4{
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 2px;
+    margin-left: 0px;
+}
+
+.container ul{
+    margin-top: 20px;
 }

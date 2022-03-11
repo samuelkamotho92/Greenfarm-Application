@@ -1,0 +1,41 @@
+<!--footer-->
+<div class="green center authfooter">
+    <p class="flow-text">Green Farm Developers &copy;2022</p>
+    <div class="row  row-footer">
+      <div class="col s12 m6 navy">
+        <a href="/" class="black-text">Home</a>
+        <a href="/About" class="black-text">About us </a>
+        <a href="#Social media" class="black-text">Social media </a>
+        <a href="/About us.html" class="black-text">Services </a>
+        <a href="#Photo gallery" class="black-text">Photo gallery </a>
+        <!-- <a href="#modal1" class="black-text modal-trigger">signup </a> -->
+      </div>
+      <div class="col s12 m6 myfooter">
+        <a href="https://web.facebook.com/james.kamotho.501" target="_blank" class="white-text"
+          ><i class="fa fa-facebook fa-2x"></i
+        ></a>
+        <a href="https://twitter.com/JamesKa50373571" target="_blank" class="white-text"
+          ><i class="fa fa-twitter fa-2x"></i
+        ></a>
+        <a href="https://www.instagram.com/jameskamotho5/" target="_blank" class="white-text"
+          ><i class="fa fa-instagram fa-2x"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/james-kamotho-b7a681204/"
+          target="_blank" class="white-text"
+          ><i class="fa fa-linkedin fa-2x"></i
+        ></a>
+      </div>
+  
+    </div>
+    <div class="userinfo">
+      <%if (user){%>
+        <li class="userinfo">Welcome back : 
+        </br>
+        <p> <%=user.useremail%></p></li>
+     <%}else{%>
+  <h4>Kindly login to do Your booking</h4>
+     <%}%>
+    </div>
+  </div>
+  

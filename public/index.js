@@ -1,3 +1,6 @@
+/* eslint-disable no-var */
+/* eslint-disable prefer-arrow-callback */
+/* eslint-disable no-undef */
 document.addEventListener("DOMContentLoaded",()=>{
     const sideNav = document.querySelectorAll(".sidenav");
     M.Sidenav.init(sideNav, {});
@@ -44,3 +47,20 @@ function displayRadiovalue(){
         }
     })
 }
+
+function initMap(){
+    //location of greenfarm
+    const greenfarm = {lat:-0.5813753 , lng: 37.2982014};
+    const map = new google.maps.Map(
+        document.getElementById("map"),
+        {
+          zoom: 4,
+          center:greenfarm,
+        }
+      );
+        // The marker, positioned at Uluru
+  const marker = new google.maps.Marker({
+    position: greenfarm,
+    map: map,
+  });
+};

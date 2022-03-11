@@ -22,7 +22,7 @@ userpassword:{
 },
 userpasswordConfirm:{
     type:String,
-    required:[true,"please enter a password"],
+    required:[true,"please enter password confirm"],
     validate:{
         validator:function(el){
             return el === this.userpassword
@@ -40,7 +40,7 @@ role:{
 );
 //after some events
 authSchema.post("save",(doc,next)=> {
-    console.log("user saved",doc);
+    // console.log("user saved",doc);
     next();
 })
 //mongose pre hook
@@ -49,9 +49,11 @@ authSchema.pre("save",async function(next){
     if(!this.isModified("userpassword")){
 next()
     }
-    console.log("user about to be saved",this);
+    // console.log("user about to be saved",this);
     const salt = await bcrypt.genSalt();
     this.userpassword = await bcrypt.hash(this.userpassword,salt);
+//dont save it in the database
+    this.userpasswordConfirm = undefined;
     next();
 })
 // static method to login user

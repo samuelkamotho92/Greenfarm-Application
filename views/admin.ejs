@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("./partials/head");%>
+<body>
+    <%-include("./partials/authnav");%>
+<main>
+<h3 style="text-align: center;">Welcome To Admin Page</h3>
+<div class="clientinfo">
+    <div class="row">
+        <div class="col s12 l6">
+            <div class="patientbook">
+<div class="card green lighten-3">
+    <div class="card-content">
+        <div class="card-title">
+     <h3>Patient Booking</h3>  
+        </div>
+        <div class="card-action">
+<h4 ><a href="/api/v1/patients/doctor"><span style="color:blueviolet">
+    Head To Patient booking</span></a></h4>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    <div class="col s12 l6 ">
+        <div class="housebook">
+            <div class="card green lighten-3">
+                <div class="card-content">
+                    <div class="card-title">
+                 <h3>House Booking</h3>  
+                    </div>
+                    <div class="card-action">
+            <h4 style="color: black;"><a href="/api/v1/house/booking">
+   <span style="color:blueviolet">Head To House booking</span></a></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</main>
+<%-include("partials/authfooter.ejs")-%>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/index.js"></script>
+</body>
+</html>

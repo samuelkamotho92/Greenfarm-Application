@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<%-include("partials/head");-%>
-<%-include("partials/authnav");-%>
-<main>
-    <form>
+    <%-include("./partials/head");-%>
+    <body>
+<%-include("./partials/authnav");-%>
+<main class="loginform">
+    <form id="loging" >
         <label for="email">Email</label>
         <input type="email" name="email" required/>
         <div class="emailerror"></div>
         <label for="password">Password</label>
         <input type="password" name="password" required/>
         <div class="passworderror"></div>
+        <a href="/passwordRest">Forgotten passowrd</a>
         <button>Login</button>
     </form>
 </main>
+<%-include("./partials/authfooter");-%>
 <script>
     const form = document.querySelector("form");
     const emailerror = document.querySelector(".emailerror");
@@ -45,5 +48,9 @@ try {
 
     })
 </script>
-<%-include("partials/footer");-%>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/index.js"></script>
+</body>
 </html>
+

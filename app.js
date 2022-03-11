@@ -4,10 +4,13 @@ const morgan = require("morgan");
 const cookieParser  = require("cookie-parser");
 const routehandler = require("./Router/clientauthroutes");
 const bookingroutes = require("./Router/bookingrouter");
+const adminroutes = require("./Router/adminrouter")
 const patientroutes = require("./Router/patientrouter");
 const AppError = require("./utility/appError")
 const globalError = require("./controler/errorController")
 const {jwtauthveirify,getuserinfo} = require("./middleware/authjwtverify");
+
+const  restroutes = require("./Router/passwordroute")
 
 const app = express();
 
@@ -36,13 +39,6 @@ app.get("/About", (req, resp) => {
 app.get("/Client", (req, resp) => {
   resp.render("Clients");
 });
-app.get("/Order",jwtauthveirify ,(req,resp)=>{
-  resp.render("orderonline");
-})
-//get all the house bookings , admin
-app.get("/house",jwtauthveirify,(req,resp)=>{
-  resp.render("Housebooking");
-})
 
 app.get("/setcookies",(req,resp)=>{
   resp.cookie("student","true");
@@ -58,16 +54,16 @@ app.get("/patientbook",jwtauthveirify,(req,resp)=>{
 app.get("/housebook",jwtauthveirify,(req,resp)=>{
   resp.render("clienthousebook")
 })
-
-
+//get all the house bookings , admin
 //administrator routes to access data
+app.use("/api/v1/",adminroutes)
 //booking middlware
-app.use("/api/v1/house",bookingroutes);
+app.use("/api/v1/house",jwtauthveirify,bookingroutes);
 //patient middleware
-app.use("/api/v1/patients",patientroutes);
+app.use("/api/v1/patients",jwtauthveirify,patientroutes);
 //setting our route handler for authroutes middleware
 app.use(routehandler);
-
+app.use(restroutes);
 //incase of a wrong route
  //create an error
 app.all("*",(req,resp,next)=>

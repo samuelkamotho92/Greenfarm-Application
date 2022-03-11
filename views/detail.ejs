@@ -5,16 +5,16 @@
 <%-include("partials/nav.ejs");%>
 <main>
     <div class="content">
-    <p>Patient Name<%=detail.name%></p>
-    <p>Patient phonenumber<%=detail.phonenumber%></p>
-    <p>Patient Email<%=detail.email%></p>
-    <p>Patient Illness<%=detail.illness%></p>
-    <p>Date Recommended By Patient<%=detail.date%></p>
-    <p>Patient Age:<%=detail.age%></p>
+    <p style="font-size: 1.5rem; color: black;">Patient Name <%=detail.name%></p>
+    <p style="font-size: 1.5rem; color: black;">Patient phonenumber<%=detail.phonenumber%></p>
+    <p style="font-size: 1.5rem; color: black;">Patient Email<%=detail.email%></p>
+    <p style="font-size: 1.5rem; color: black;">Patient Illness<%=detail.illness%></p>
+    <p style="font-size: 1.5rem; color: black;">Date Recommended By Patient<%=detail.date%></p>
+    <p style="font-size: 1.5rem; color: black;">Patient Age:<%=detail.age%></p>
   </div>
     <a class="delete" data-doc="<%=detail._id%>">DELETE</a>
 </main>
-<%-include("partials/footer.ejs")%>
+<%-include("partials/authfooter.ejs")%>
 <script> 
     const deletereq  = document.querySelector(".delete");
     console.log(deletereq)
@@ -32,10 +32,10 @@
         return resp.json();
       }).then(data=>{
           //jandle the promise
+          alert(data.mess)
           window.location.href = data.redirect;
-     alert(data.mess);
         }).catch((err)=>{
-          console.log(err);
+        alert(err.message)
       })
     })
   </script>

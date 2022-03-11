@@ -3,52 +3,38 @@
 <!--Modal3 rental-->
 <div class="" id="">
   <div class="container">
-    <div class="text-align center black-text">
+    <div class="text-align center black-text" id="patientbooking">
       <h3 class="center">Consult the Doctor</h3>
-      <form action="/api/v1/patients/doctor" method="POST">
+      <form action="/api/v1/patients/doctor" method="POST" >
         <div class="input-field">
-          <input type="text" name="name" id="name" placeholder="" required />
-          <label for="name">
-            <span class="material-icons"> account_circle </span>
-          </label>
+          <input type="text" name="name" id="name" placeholder="UserName" required />
+        </div>
+        
+        <div class="input-field">
+          <input type="email" name="email" placeholder="Email" required\ />
         </div>
         <div class="input-field">
-          <input type="email" name="email" placeholder="email" required\ />
-          <label for="email"><i class="material-icons">email</i></label>
-        </div>
-        <div class="input-field">
-          <input type="number" name="phonenumber" placeholder="07xxxxxx00" />
-          <label for="number">
-            <i class="material-icons">phone</i>
-          </label>
+          <input type="number" name="phonenumber" 
+          placeholder="PHONE NUMBER" />
         </div>
         <div class="input-field">
           <input type="text" name="age" id="age"
          placeholder="Whats your age?"/>
-          <label for="age">
-            <i class="material-icons">age</i>
-          </label>
         </div>
         <div class="input-field">
-          <textarea class="materialize-textarea"id="illness" name="illness" placeholder="illness" required>
-          </textarea>
-          <label class="details">
-            <span class="material-icons"> feed </span>
-          </label>
+          <input
+          placeholder="Kindly describe some of your symptoms" id="illness"
+           name="illness" required>
+          </input>
         </div>
-
         <div class="input-field">
-          <input type="text" name="date" class="datepicker" />
-          <label for="date">
-            <span class="material-icons"> calendar_today </span>
-          </label>
+          <input type="text" name="date" placeholder="Pick A date to see the doctor" class="datepicker" />
         </div>
         <button class="btn teal">SUBMIT</button>
       </form>
     </div>
   </div>
 </div>
-<%-include("./partials/footer.ejs");%>
 <script>
 //   const button = document.querySelector("btn");
 //   const endpoint = "/api/v1/patients/doctor"

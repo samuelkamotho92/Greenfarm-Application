@@ -3,32 +3,37 @@
 <%-include("partials/head")%>
 <body>
     <%-include("./partials/nav.ejs"); %>
-<main></main>
-<h3>Welcome to <%=title%></h3>
+<main>
+<h3 style="text-align: center;">Welcome to <span style="color: green;"><%=title%></span></h3>
 <%if(clientDetail.length > 0){%>
 <%clientDetail.forEach(detail=>{%>
-    <a href="/api/v1/house/detail/<%=detail.id%>">
-<div class="clientname">
-   <h4>Name:<%=detail.name%></h4>
-</div>
-<div class="clientnumber">
-    <h5>PhoneNumber:<%=detail.phonenumber%></h4>
-</div>
-<div class="clientemail">
-    <h5>Email:<%=detail.email%></h4>
-</div>
-<div class="extrainfo">
- <p>Description:<%=detail.housedescription%></h4>
-<p>Details:<%=detail.details%></h4>
- <p>Date:<%=detail.date%></h4>
+    <div class="patientbook">
+        <a href="/api/v1/house/detail/<%=detail.id%>">
+            <div class="clientname">
+               <h4>Name:<%=detail.name%></h4>
+            </div>
+            <div class="clientnumber">
+                <h5>PhoneNumber:<%=detail.phonenumber%></h4>
+            </div>
+            <div class="clientemail">
+                <h5>Email:<%=detail.email%></h4>
+            </div>
+            <div class="extrainfo">
+             <p style="font-size: 2rem; color: black;">Description:<%=detail.housedescription%></h4>
+            <p style="font-size: 2rem; color: black;">Details:<%=detail.details%></h4>
+             <p style="font-size: 2rem; color: black;">Date:<%=detail.date%></h4>
+                </div>
+            </a>
     </div>
-</a>
+
 <%})%>
 <%}else {%>
     <h2>NO CLIENT HAS BOOKED YET</h2>
     <%}%>
 </main>
-    <%-include("./partials/footer.ejs");%>
+<%-include("partials/authfooter.ejs")%>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/index.js"></script>
 </body>
-
 </html>

@@ -4,14 +4,57 @@
 <body>
 <%-include("./partials/authnav.ejs"); %>
 <main>
-    <h2>Order online,Book appointment and House booking</h2>
-    <h4><a href="/housebook">Book a House</a></h4>
-    <h4><a href="/patientbook">Book an Appointment with the doctor</a></h4>
-    <h4><a href="/Order">Buy fresh farm produce</a></h4>    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src="/auth.js"></script>
+    <h2 style="text-align: center;"> 
+        <span style="color: green;">House</span> booking and
+         <span style="color: green;">Doctor's</span> 
+         Appointment booking</h2>
+    <div class="row">
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-image">
+              <img src="/assets/picture5.jpg">
+              <span class="card-title">House Booking 🏠 🏠 </span>
+              <a href="#" class="halfway-fab btn-floating pink pulse"
+              >
+                <i class="fa fa-home" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="card-content">
+              <p>You can Conveniently Book a house Online after loging in,
+and you will receive a call immediately</p>
+            </div>
+            <div class="card-action">
+                🏠 🏠 
+                <h4><a href="/housebook">Book a House</a></h4>
+              </div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+            <div class="card">
+              <div class="card-image">
+                <img src="/assets/docpic.jpg">
+                <span class="card-title">DOCTOR APPOINTMENT💉💊 </span>
+                <a href="#" class="halfway-fab btn-floating pink pulse">
+                    <i class="fa fa-medkit" aria-hidden="true"></i>
+                  </a>
+              </div>
+              <div class="card-content">
+                <p>Incase of Any Health Issue,you can book an apointment with the doctor</br>Upon loging Into the site</p>
+
+              </div>
+              <div class="card-action">
+                💉💊 
+                <h4><a href="/patientbook">Book an Appointment with the doctor</a></h4>
+                </div>
+            </div>
+          </div>
+      </div>  
 </main>
 <%-include("./partials/footer.ejs");%>
-<script src="/Clientspg.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/index.js"></script>
 </body>
 </html>
+
+

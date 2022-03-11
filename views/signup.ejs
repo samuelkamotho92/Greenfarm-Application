@@ -1,13 +1,19 @@
-<%-include("./partials/head.ejs");-%>
-<%-include("./partials/authnav.ejs");-%>
-<main>
-    <form>
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("./partials/head.ejs");-%>
+<body>
+    <%-include("./partials/authnav.ejs");-%>
+<main class="signupform">
+    <form id="signing">
         <label for="email">Email</label>
         <input type="email" name="email" required />
         <div class="emailerror"></div>
         <label for="password">Password</label>
         <input type="password" name="password" required />
         <div class="passworderror"></div>
+        <label for="password">Password Confirmation</label>
+        <input type="password" name="passwordConfirm" required />
+        <div class="passwordConfError"></div>
         <button>Sign Up</button>
       </form>
 </main>
@@ -15,25 +21,29 @@
     const form  = document.querySelector("form");
     const emailerror = document.querySelector(".emailerror");
     const passworderror = document.querySelector(".passworderror");
+    const passConfirmError = document.querySelector(".passwordConfError")
     form.addEventListener("submit", async(e)=>{
         emailerror.textContent = "";
                passworderror.textContent = "";
+               passConfirmError.textContent = "";
         e.preventDefault();
         const useremail = form.email.value;
         const userpassword = form.password.value;
+        const userpasswordConfirm = form.passwordConfirm.value
         try{
         const res = await fetch("/signup",{
 method:"POST",
-body:JSON.stringify({useremail,userpassword}),
+body:JSON.stringify({useremail,userpassword,userpasswordConfirm}),
 headers:{"Content-Type":"application/json"}
            })
            //get the resp
            const data = await res.json();
            console.log(data.authErrors);
            if (data.authErrors) {
-               emailerror.textContent = data.authErrors.useremail;
-               passworderror.textContent = data.authErrors.userpassword;
-           }
+        emailerror.textContent = data.authErrors.useremail;
+        passworderror.textContent = data.authErrors.userpassword;
+        passConfirmError.textContent  = data.authErrors.userpasswordConfirm;
+            }
            if (data.usersigncred) {
                location.assign("/");
            }
@@ -43,4 +53,11 @@ headers:{"Content-Type":"application/json"}
     }
     )
 </script>
-<%-include("./partials/footer.ejs");-%>
+<%-include("./partials/authfooter.ejs");-%>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/index.js"></script>
+
+</html> 
+
+   

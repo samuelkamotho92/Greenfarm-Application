@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 
 const dotenv = require("dotenv");
 
+const nodemailer = require("nodemailer");
 
 //create a path
 dotenv.config({ path: './config.env' });
@@ -24,5 +25,5 @@ console.log("connected to mongdb database");
   }).catch(err=>{
 console.log(err);
   });
-  console.log(process.env.NODE_ENV);
+
   

@@ -15,15 +15,21 @@ patientroutes
 .route("/monthlybooking/:year").
 get(patcontroler.mthbook)
 patientroutes.route("/doctor")
-.get(patcontroler.get_patientbooking)
+.get(authverify.jwtauthveirify,
+authverify.restrictto,
+    patcontroler.get_patientbooking)
 .post(patcontroler.save_patientbooking)
 patientroutes.route("/detail/:id")
-.get(patcontroler.get_apatientbook)
+.get(
+    authverify.jwtauthveirify,
+    authverify.restrictto, 
+    patcontroler.get_apatientbook)
 .patch(patcontroler.patientupdate)
 .delete(
 authverify.jwtauthveirify,
-authverify.restrictTo("admin","assistant"),
-    patcontroler.deletebooking)
+authverify.restrictto,
+patcontroler.deletebooking
+)
 
 //rendering the patoent bking form
 // patientroutes.route("/patientbook")

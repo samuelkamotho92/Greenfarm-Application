@@ -6,14 +6,20 @@ const authverify = require("../middleware/authjwtverify")
 
 const bookrouter = express.Router();
 bookrouter.route("/booking")
-.get(controller.get_allbooking)
+.get(
+    authverify.jwtauthveirify,
+    authverify.restrictto, 
+    controller.get_allbooking)
 .post(controller.save_allbooking);
 bookrouter.route("/detail/:id")
-.get(controller.get_ahousebook)
+.get(
+    authverify.jwtauthveirify,
+    authverify.restrictto, 
+    controller.get_ahousebook)
 .patch(controller.houseupdate)
 .delete(
     authverify.jwtauthveirify,
-    authverify.restrictTo("admin","assistant"),
+    authverify.restrictto,
     controller.deletebooking)
 
 module.exports = bookrouter;
