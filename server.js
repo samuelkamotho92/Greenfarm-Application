@@ -8,6 +8,7 @@ const nodemailer = require("nodemailer");
 //create a path
 dotenv.config({ path: './config.env' });
 const app = require('./app');
+const PORT = process.env.PORT || 8080
 
 // database connectionn
 const dbURI =
@@ -19,7 +20,7 @@ mongoose
     useCreateIndex: true,
   })
 .then(()=>{
-   app.listen(8080,()=>{
+   app.listen(PORT,()=>{
 console.log("connected to mongdb database");
     })
   }).catch(err=>{
