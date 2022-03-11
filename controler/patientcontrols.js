@@ -1,3 +1,4 @@
+/* eslint-disable no-empty */
 /* eslint-disable new-cap */
 /* eslint-disable no-undef */
 /* eslint-disable no-alert */
@@ -18,9 +19,14 @@ const queryops = require("../utility/features");
 const get_patientbooking = catchAsync(async (req,resp,next)=>{
    const features = new queryops(doctorbooking.find(),req.query);
   const result = await features.query;
-  resp.status(200).render("doctors",
-  { title:"Patient Booking",
-  patientDetail:result})
+  try{
+    resp.status(200).render("doctors",
+    { title:"Patient Booking",
+    patientDetail:result})
+  }catch(err){
+alert("NOT PERMITTED")
+  }
+
   })
 const get_apatientbook = catchAsync(async (req,resp,next)=>{
     const patientid = req.params.id;
@@ -38,18 +44,22 @@ const save_patientbooking = catchAsync(async (req,resp,next)=>{
   });
 
   const deletebooking = catchAsync(async (req,resp,next)=>{
+    try{
       const id = req.params.id;
+      console.log(id);
   const book =  await doctorbooking.findByIdAndDelete(id);
-  if(!book){
-    return next(new AppError('No tour found with that ID', 404));
-    }
-
      resp.status(200).json({
 status:"success",
-data:null,
 redirect:"/api/v1/patients/doctor",
 mess:"deleted Suucesfully"
      })
+    }catch(err){
+      resp.status(404).json({
+        status:"error",
+        message:"not authoursied"
+             })
+    }
+  next()
 })
 
 const patientupdate = catchAsync(async (req,resp,next)=>{

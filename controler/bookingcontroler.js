@@ -14,7 +14,7 @@ const get_allbooking = async (req,resp)=>{
 const features = new Queryoperations(housebook.find(),req.query);
 const result = await features.query;
 resp.render("Housebooking",
-{ title:"Client Booking Information",
+{ title:"House Booking",
 clientDetail:result})
   }catch(err){
 resp.status(404).json({
