@@ -10,7 +10,9 @@
               <li><a href="/">Home</a></li>
                <% if(user) {%>
                  <li><a href="/logout">LOG OUT</a></li>
-                 <li><a href="/api/v1/admin">Admin</a></li>
+                 <% if(user.role === "admin" || user.role === "owner"){%>
+                  <li><a href="/api/v1/admin">Admin</a></li>
+                <%}%>
                  <%} else {%>
                  <li><a href="/login">LOG IN</a></li>
                  <li><a href="/Signup">SIGN UP</a></li>
