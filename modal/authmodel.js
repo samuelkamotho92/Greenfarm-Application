@@ -32,7 +32,7 @@ userpasswordConfirm:{
 },
 role:{
     type:String,
-    enum:["user","admin","assistant"],
+    enum:["user","admin","owner"],
     default:"user"
 }
 
